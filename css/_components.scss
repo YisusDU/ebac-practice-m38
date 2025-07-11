@@ -1,0 +1,296 @@
+//Components
+
+header {
+    h1 {
+        text-align: center;
+    }
+}
+
+//First screen
+.firstScreen {
+    width: 90%;
+    @include flex;
+
+    .firstScreen__poster {
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .firstScreen__contentCurse {
+        @include flex();
+        @include box;
+
+        ul {
+            margin: 0;
+            text-align: justify;
+            list-style: none;
+
+            li {
+                @include flex(flex-start, row, center);
+                gap: 10px;
+
+                i {
+                    font-style: normal;
+                    font-size: 1.2rem;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+            }
+
+        }
+    }
+
+    .firstScreen__bonus {
+        @include spanStyles($tertiaryColor);
+        font-weight: 600;
+    }
+
+    .firstScreen__bonus:nth-of-type(1) {
+        @include spanStyles($secondaryColor);
+    }
+
+    .firstScreen__CTA {
+        @include flex(space-evenly, row, center);
+
+        &:hover {
+            i {
+                opacity: 1;
+                font-size: 2rem;
+            }
+        }
+
+        i {
+            margin-left: 20px;
+            margin-right: 20px;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+        }
+
+        a {
+            @include buttonCTA;
+            padding: 15px;
+        }
+    }
+}
+
+//Guarantee
+.guarantee {
+    @include flex(space-evenly, row, center);
+    @include box;
+
+    video {
+        width: 20%;
+        border-radius: 10px;
+        min-width: 250px;
+    }
+
+    div {
+        @include box(60%, 10px, 10px);
+
+        .guarantee__span {
+            @include spanStyles()
+        }
+
+        p {
+            text-align: justify;
+        }
+    }
+
+}
+
+//Collab
+.collab {
+    @include flex(space-evenly, column, flex-start);
+    @include box;
+
+    h2 {
+        color: $primaryColor;
+    }
+
+    .collab__content {
+        @include flex(space-evenly, row, center);
+
+        .collab__description {
+            @include flex;
+            text-align: justify;
+        }
+
+        .collab__poster {
+            width: 60%;
+        }
+    }
+
+    .collab__partners {
+        width: 100%;
+    }
+}
+
+//additionalInfo
+.additionalInfo {
+    @include flex;
+    @include box;
+
+    .additionalInfo__info {
+        @include flex(space-evenly, row, center);
+        @include box;
+
+        div {
+            @include flex(space-evenly, column, center);
+            @include box;
+
+            h2 {
+                color: $secondaryColor;
+            }
+
+            p {
+                text-align: justify;
+            }
+
+            img {
+                width: 70%;
+            }
+        }
+    }
+
+    //second card
+    .additionalInfo__info:nth-of-type(2) {
+        @include flex(space-evenly, row-reverse, center);
+    }
+}
+
+//Qualification
+.qualification {
+
+    h2 {
+        text-align: center;
+        @include spanStyles($primaryColor);
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        max-width: 800px;
+    }
+}
+
+//product
+.product {
+    @include flex;
+    @include box;
+
+    h2 {
+        color: $primaryColor;
+    }
+
+    img {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 10px;
+    }
+}
+
+
+//last call
+.lastCall {
+    @include flex;
+    @include box;
+    background-color: #fffee1;
+    text-align: center;
+    border-radius: 10px;
+
+    h2 {
+        color: $secondaryColor;
+    }
+
+    video {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 10px;
+    }
+
+    h3 {
+        color: $primaryColor;
+        font-size: 30px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    p {
+        color: #0f0f0f
+    }
+
+    .lastCall__CTA {
+        @include flex(space-evenly, row, center);
+
+        &:hover {
+            i {
+                opacity: 1;
+                font-size: 2rem;
+            }
+        }
+
+        i {
+            margin-left: 20px;
+            margin-right: 20px;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+        }
+
+        a {
+            @include buttonCTA;
+            padding: 15px;
+        }
+    }
+}
+
+//footer
+footer {
+    @include flex(space-evenly, column, flex-start);
+    @include box;
+    text-align: justify;
+    color: #494949;
+    font-size: .8rem;
+}
+
+//Responsive designe
+@media screen and (max-width: 48rem) {
+    .guarantee {
+        flex-direction: column;
+    }
+
+    .collab {
+        .collab__content {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .additionalInfo {
+        .additionalInfo__info {
+            flex-direction: column-reverse;
+        }
+
+        .additionalInfo__info:nth-of-type(2) {
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+//dark mmode
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0f0f0f;
+        color: #fff;
+    }
+
+    footer {
+        color: #fff;
+    }
+}
